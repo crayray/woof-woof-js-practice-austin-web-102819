@@ -21,10 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
            let dogPic = document.createElement('img');
            let dogName = document.createElement('h2');
            let dogButton = document.createElement('button');
-           dogButton.name = "Good Dog!";
+           dogButton.innerHTML = "Good Dog!";
            dogName.innerText = `${dogsData[element].name}`
            dogPic.src = `${dogsData[element].image}`;
-           console.log(dogPic);
            span = document.createElement('span');
            span.innerHTML= `${dogsData[element].name}`;
            dogDiv.appendChild(dogPic);
@@ -33,6 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
            dogBar.appendChild(span);
            span.addEventListener("click", () =>  {
             dogInfo.appendChild(dogDiv);
+
+            dogButton.addEventListener("click", () => {
+                // alert("did something");
+                if (dogButton.innerHTML === "Good Dog!") {
+                    console.log("hi, good boy")
+                    dogButton.innerHTML = "Bad Dog!";
+                } else {
+                    dogButton.innerHTML = "Good Dog!";
+                }
+            })
             
            });
        }
